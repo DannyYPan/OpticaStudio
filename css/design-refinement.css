@@ -1,0 +1,166 @@
+/* Optica Studio: restrained, image-first visual system */
+:root {
+  color-scheme: light;
+  --ink: #202823;
+  --muted: #68736b;
+  --line: #dfe3dd;
+  --paper: #f4f4f0;
+  --green: #365d4b;
+  --green-dark: #294b3b;
+  --mint: #eaf0eb;
+  --orange: #a96142;
+}
+
+body {
+  color: var(--ink);
+  background: var(--paper);
+  background-image: none;
+}
+
+.topbar {
+  border-color: var(--line);
+  background: #f8f8f5;
+}
+
+.brand, .brand:hover, .brand-title-text { color: var(--ink); }
+.brand-mark { background: var(--green); color: #fff; border-radius: 4px; }
+.brand-dot, .eyebrow, h1 span, .home-eyebrow, .panel-heading .step,
+.field-label output, .tool-description b { color: var(--green); }
+.privacy, .panel-heading p, .intro-copy, .tool-description, .tip,
+.sample-copy small, .range-ends, .format-note, .field-label,
+.outline-color, .preview-bottom, .preview-label, .preview-dimensions,
+.gradient-switch, .crop-readout, .zoom-controls output,
+.pdf-page-controls output { color: var(--muted); }
+.privacy-dot, .live-dot { background: var(--green); }
+
+/* Asymmetric tool directory: one short introduction beside a plain tool list. */
+.tool-home {
+  display: grid;
+  grid-template-columns: minmax(220px, .82fr) minmax(0, 1.18fr);
+  align-items: center;
+  gap: clamp(32px, 7vw, 92px);
+  max-width: 1060px;
+  padding: clamp(56px, 11vh, 108px) 0 72px;
+}
+.tool-home-heading { margin: 0; max-width: 360px; }
+.home-eyebrow { margin-bottom: 17px; font-size: 10px; letter-spacing: 1.2px; }
+.tool-home-heading h1 {
+  color: var(--ink);
+  font-size: clamp(32px, 4vw, 45px);
+  line-height: 1.12;
+  letter-spacing: -1.7px;
+}
+.tool-home-heading p { max-width: 300px; margin-top: 14px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.tool-grid { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+.tool-card {
+  min-height: 82px;
+  gap: 14px;
+  padding: 13px 10px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: background-color .14s ease;
+}
+.tool-card:hover {
+  transform: none;
+  border-color: var(--line);
+  background: #e9ede8;
+  box-shadow: none;
+}
+.tool-card-icon {
+  width: 36px;
+  height: 36px;
+  flex-basis: 36px;
+  border-radius: 4px;
+  background: var(--mint);
+  color: var(--green);
+}
+.tool-card-icon svg { width: 20px; height: 20px; stroke-width: 1.7; }
+.tool-card-copy { gap: 4px; }
+.tool-card-copy strong { color: var(--ink); font-size: 12px; font-weight: 700; }
+.tool-card-copy small { color: var(--muted); font-size: 10px; }
+.tool-card-arrow { color: var(--green); font-size: 0; transition: none; }
+.tool-card-arrow::before { content: "\2192"; font-size: 17px; }
+.tool-card:hover .tool-card-arrow { transform: none; }
+
+/* Flat surfaces and a single accent keep the editing area focused on the image. */
+.workspace {
+  border-color: var(--line);
+  border-radius: 6px;
+  box-shadow: none;
+}
+.tools-panel, .preview-top, .preview-bottom { border-color: var(--line); }
+.upload-card {
+  border-color: #bfc9c1;
+  border-radius: 4px;
+  background: #fafbf8;
+  transition: border-color .14s ease, background-color .14s ease;
+}
+.upload-card:hover, .upload-card.drag-over { border-color: var(--green); background: var(--mint); }
+.upload-icon, .step, .control-title-row output { border-radius: 3px; background: var(--mint); color: var(--green); }
+.file-info, .color-rule { background: #f7f8f5; border-color: var(--line); border-radius: 4px; }
+.sample-button, .secondary-button, .tools-menu summary, .tool-select,
+.crop-custom input, .crop-fields input, .resize-dimensions input,
+.zoom-controls button, .range-number, .outline-color .outline-hex,
+.background-color-controls .outline-hex {
+  border-color: #ccd3cc;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+}
+.sample-button:hover:not(:disabled), .secondary-button:hover:not(:disabled),
+.menu-options button:hover, .zoom-controls button:hover:not(:disabled) {
+  border-color: #aebdb1;
+  background: var(--mint);
+  color: var(--green-dark);
+}
+.primary-button, .preview-button, .pick-overlay {
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  background: var(--green);
+  color: #fff;
+  box-shadow: none;
+}
+.primary-button:hover:not(:disabled), .preview-button:hover:not(:disabled),
+.pick-overlay:hover { background: var(--green-dark); }
+.menu-options { border-color: var(--line); border-radius: 5px; box-shadow: 0 5px 14px #20282312; }
+.menu-options button { color: var(--ink); }
+.canvas-wrap { background-color: #eceeea; background-image: none; }
+.canvas-stack canvas { outline-color: #26312b50; }
+.canvas-stack canvas, .debug-image-grid img { box-shadow: none; }
+.canvas-stack canvas {
+  background-color: #f7f8f6;
+  background-image: linear-gradient(45deg,#e2e5e1 25%,transparent 25%),linear-gradient(-45deg,#e2e5e1 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e2e5e1 75%),linear-gradient(-45deg,transparent 75%,#e2e5e1 75%);
+}
+.live-dot { display: none; }
+.control-block input[type=range], .compare-controls input, .full-range,
+.outline-width, .pdf-page-controls input { accent-color: var(--green); }
+.control-block input[type=range]::-webkit-slider-thumb { background: var(--green); box-shadow: 0 0 0 1px var(--green-dark); }
+.control-block input[type=range]::-moz-range-thumb { background: var(--green); box-shadow: 0 0 0 1px var(--green-dark); }
+.comparison-toggle { border-color: #c7d2c8; background: #edf1ed; }
+.comparison-thumb { background: var(--green); box-shadow: none; }
+.comparison-toggle button[aria-pressed="true"] { color: var(--ink); }
+.tools-menu[open] summary { border-color: var(--green); color: var(--green-dark); }
+.switch-track { background: #c3cbc4; }
+.gradient-switch input:checked + .switch-track { background: var(--green); }
+.gradient-switch input:checked + .switch-track::after { background: #fff; }
+.save-dialogue-option { margin-top: 13px; }
+.save-dialogue-note { margin: 5px 0 0 34px; color: var(--muted); font-size: 9px; line-height: 1.45; }
+.button:focus-visible, button:focus-visible, .upload-card:focus-visible { outline-color: var(--green); }
+.crop-frame { border-color: var(--green); }
+.crop-resize { border-color: var(--green-dark); background: #fff; }
+.outline-row { border-color: var(--line); border-radius: 4px; box-shadow: none; }
+
+@media (max-width: 760px) {
+  .tool-home { grid-template-columns: 1fr; gap: 27px; padding: 54px 0 48px; }
+  .tool-home-heading { max-width: 520px; }
+  .tool-home-heading h1 { font-size: clamp(30px, 8vw, 40px); }
+  .tool-card { min-height: 76px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card, .upload-card, button, .page-view, .tool-controls,
+  .comparison-thumb, .canvas-stack { transition: none !important; }
+}
